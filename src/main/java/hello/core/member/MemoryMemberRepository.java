@@ -12,14 +12,14 @@ public class MemoryMemberRepository implements MemberRepository{
     // 상수(private,static)로 저장소 생성자 구현
     private static Map<Long, Member> store = new HashMap<>();
 
-    // 메서드 오버라이드로 save 재정의, 반환타입은 같아야함
+    // 메서드 오버라이드로 save 재정의
     @Override
     public void savs(Member member) {
         store.put(member.getId(), member);
 
     }
 
-    // 메서드 오버라이드로 findById 재정의, 반환타입은 같아야함
+    // 메서드 오버라이드로 findById 재정의,
     @Override
     public Member findById(Long memberId) {
         return store.get(memberId);

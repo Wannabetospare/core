@@ -8,14 +8,14 @@ public class MemberServiceImpl implements  MemberService{
     private final MemberRepository memberRepository = new MemoryMemberRepository();
 
 
-    // 메서드 오버라이드로 join 재정의, 반환타입은 같아야함
+    // 메서드 오버라이드로 join 재정의
     @Override
     public void join(Member member) {
         memberRepository.savs(member);
 
     }
 
-    // 메서드 오버라이드로 findMember 재정의, 반환타입은 같아야함
+    // 메서드 오버라이드로 findMember 재정의
     @Override
     public Member findMember(Long memberId) {
 

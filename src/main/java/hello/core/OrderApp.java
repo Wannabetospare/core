@@ -21,7 +21,7 @@ public class OrderApp {
         // 서비스의 메서드를 사용해 가입시킴
         memberService.join(member);
 
-        // 오더 클래스로 선언하여 오더서비스의 메서드를 사용하여 주문정보를 저장
+        // 오더 클래스로 선언하여 오더서비스 구현체의 메서드를 사용하여 주문정보를 저장
         Order order = orderService.createOrder(memberId, "itemA", 10000);
 
         System.out.println("order = " + order);
