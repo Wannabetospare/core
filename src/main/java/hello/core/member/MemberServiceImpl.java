@@ -5,8 +5,11 @@ package hello.core.member;
 public class MemberServiceImpl implements  MemberService{
 
     // 저장소가 필요하니 저장소를 선언하한다. 선언은 구현받는 인터페이스로하되, 생성부는 new 구현체 클래스로 선언한다.
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
 
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     // 메서드 오버라이드로 join 재정의
     @Override
@@ -18,7 +21,6 @@ public class MemberServiceImpl implements  MemberService{
     // 메서드 오버라이드로 findMember 재정의
     @Override
     public Member findMember(Long memberId) {
-
         return memberRepository.findById(memberId);
     }
 

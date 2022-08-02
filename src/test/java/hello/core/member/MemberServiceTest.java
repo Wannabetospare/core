@@ -1,14 +1,24 @@
 package hello.core.member;
 
+import hello.core.AppConfig;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 // 테스트 파일에 서비스테스트 클래스
 public class MemberServiceTest {
 
+    MemberService memberService;
+
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
+
     // 똑같이 서비스 선언, new 구현체 선언
-    MemberService memberService = new MemberServiceImpl();
+    // MemberService memberService = new MemberServiceImpl();
 
     @Test //  테스트임을 명시
     void join(){

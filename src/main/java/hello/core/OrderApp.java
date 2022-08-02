@@ -10,10 +10,14 @@ public class OrderApp {
 
     public static void main(String[] args) {
 
-        // 멤버 서비스를 선언하고, 구현체로 멤버 서비스구현체 생성
-        MemberService memberService = new MemberServiceImpl();
-        // 오더 서비스를 선언하고, 구현체로 오더 서비스구현체 생성
-        OrderService orderService = new OrderServiceImpl();
+          AppConfig appConfig = new AppConfig();
+          MemberService memberService = appConfig.memberService();
+          OrderService orderService = appConfig.orderService();
+
+//        // 멤버 서비스를 선언하고, 구현체로 멤버 서비스구현체 생성
+//        MemberService memberService = new MemberServiceImpl(null);
+//        // 오더 서비스를 선언하고, 구현체로 오더 서비스구현체 생성
+//        OrderService orderService = new OrderServiceImpl(null,null);
 
         Long memberId = 1L;
         // 멤버 클래스의 생성자를 생성
