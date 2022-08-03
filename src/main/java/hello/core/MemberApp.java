@@ -14,7 +14,9 @@ public class MemberApp {
 //        AppConfig appConfig = new AppConfig();
 //        MemberService memberService = appConfig.memberService();
 
+        // ApplicationContext = 컨테이너 같은 역할, 내가 등록한 bean 값들을 사용하겠다고 선언
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        // 스프링 컨테이너에서 내가 꺼낼 정보를 꺼냄
         MemberService memberService = applicationContext.getBean("memberService",MemberService.class);
 
 

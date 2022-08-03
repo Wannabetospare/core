@@ -17,7 +17,9 @@ public class OrderApp {
 //          MemberService memberService = appConfig.memberService();
 //          OrderService orderService = appConfig.orderService();
 
+        // 스프링 컨테이너를 사용해서 객체를 선언
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        // 스프링 컨테이너에서 객체를 사용하여 꺼내서 사용함
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
         OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
 

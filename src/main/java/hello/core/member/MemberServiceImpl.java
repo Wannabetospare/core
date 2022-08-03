@@ -4,9 +4,10 @@ package hello.core.member;
 // 서비스를 상속받아 만든 서비스 구현체
 public class MemberServiceImpl implements  MemberService{
 
-    // 저장소가 필요하니 저장소를 선언하한다. 선언은 구현받는 인터페이스로하되, 생성부는 new 구현체 클래스로 선언한다.
+    // 저장소가 필요하니 저장소를 선언한다.
     private final MemberRepository memberRepository;
 
+    // 생성자를 통해서 주입
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

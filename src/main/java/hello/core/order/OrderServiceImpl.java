@@ -10,18 +10,19 @@ import hello.core.member.MemoryMemberRepository;
 public class OrderServiceImpl implements OrderService {
 
 
-    // 저장소를 선언,  생성자 구현은 구현체로
+    // 저장소를 선언, new 를 사용한 구현체에 의존하지 않고, 인터페이스만 사용하여 인터페이스에만 의존
     private final MemberRepository memberRepository;
 
-    // 할인 정책이 구현체에 의존하지 않고, 인터페이스에만 의존 (추상화만 사용)
+    // 할인 정책을 선언, new 를 사용한 구현체에 의존하지 않고, 인터페이스에만 의존 (추상화만 사용)
     private final DiscountPolicy discountPolicy;
 
+    // 구현체에 위에서 선언한 인터페이스 필드를 사용하여 생성자(객체) 선언
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
 
-    // 할인정책을 선언 , 생성자 구현은 구현체로
+    // 할인정책을 선언 , 생성자 구현은 구현체로 // 이건 추상화 클래스뿐만 아니라 구현체까지 사용해서 의존하였으므로 DIP 를 위반한 설계이다.
     // private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
