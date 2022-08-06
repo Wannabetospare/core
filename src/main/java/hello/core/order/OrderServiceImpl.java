@@ -5,7 +5,11 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+
+@Component
 // 오더 서비스를 상속받아 만든 서비스 구현체
 public class OrderServiceImpl implements OrderService {
 
@@ -16,6 +20,7 @@ public class OrderServiceImpl implements OrderService {
     // 할인 정책을 선언, new 를 사용한 구현체에 의존하지 않고, 인터페이스에만 의존 (추상화만 사용)
     private final DiscountPolicy discountPolicy;
 
+    @Autowired
     // 구현체에 위에서 선언한 인터페이스 필드를 사용하여 생성자(객체) 선언
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;

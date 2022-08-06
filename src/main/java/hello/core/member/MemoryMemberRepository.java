@@ -1,10 +1,14 @@
 package hello.core.member;
 
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+
 import javax.print.DocFlavor;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
+@Component
 // 리퍼지토리 인터페이스를 상속받아 만든 저장소구현체
 public class MemoryMemberRepository implements MemberRepository{
 
