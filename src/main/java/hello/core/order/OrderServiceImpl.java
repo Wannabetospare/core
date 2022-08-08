@@ -1,11 +1,14 @@
 package hello.core.order;
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 
@@ -21,11 +24,13 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     @Autowired
-    // 구현체에 위에서 선언한 인터페이스 필드를 사용하여 생성자(객체) 선언
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
+
+
 
     // 할인정책을 선언 , 생성자 구현은 구현체로 // 이건 추상화 클래스뿐만 아니라 구현체까지 사용해서 의존하였으므로 DIP 를 위반한 설계이다.
     // private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
