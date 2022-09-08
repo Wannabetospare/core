@@ -18,13 +18,21 @@ public class MemberServiceImpl implements  MemberService{
     }
 
     // 메서드 오버라이드로 join 재정의
+    // 이름 - join
+    // 매개변수 - member
+    // 동작 - 매개변수로 받은 멤버를 리퍼지토리에 저장한다.
+    // 반환값 - x
     @Override
     public void join(Member member) {
-        memberRepository.savs(member);
+        memberRepository.save(member);
 
     }
 
     // 메서드 오버라이드로 findMember 재정의
+    // 이름 - findMember
+    // 매개변수 - memberId
+    // 동작 - 매개변수를 이용해서 리퍼지토리에서 멤버를 찾고
+    // 반환값 - 동작값으로 찾은 멤버를 반환한다.
     @Override
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);

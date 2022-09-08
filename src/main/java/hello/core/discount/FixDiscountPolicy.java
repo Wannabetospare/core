@@ -10,12 +10,16 @@ public class FixDiscountPolicy implements DiscountPolicy {
     private int discountFixAmount = 1000; //1000원 할인
 
     // 메서드 오버라이드로 discount 메서드를 재정의
-    // 멤버 클래스와 가격을 매개변수로 받음, 등급을 확인하고 VIP 이면 위에서 선언한 1000원을 깍아줌
+    // 이름 - discount
+    // 매개변수 - member, price
+    // 동작 - 멤버의 등급이 VIP 이면 1000을 반환하고, 아니면 0을 반환한다.
+    // 반환값 - 동작 정수 값
     @Override
     public int discount(Member member, int price) {
         if (member.getGrade() == Grade.VIP) {
             return discountFixAmount;
         } else {
             return 0;
-        } }
+        }
+    }
 }

@@ -16,7 +16,7 @@ public class Order {
         this.discountPrice = discountPrice;
     }
 
-    // 아이템 가격에서 할인을 해주는 메서드 구현
+    // 아이템 가격에서 할인가격을 빼주는 메서드
     public int calculatePrice() {
 
         return itemPrice - discountPrice;
@@ -29,10 +29,12 @@ public class Order {
     }
 
     public String getItemName() {
+
         return itemName;
     }
 
     public int getItemPrice() {
+
         return itemPrice;
     }
 

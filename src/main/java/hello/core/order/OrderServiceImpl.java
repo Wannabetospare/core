@@ -24,12 +24,11 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository,
-                            @Qualifier("mainDiscountPolicy") DiscountPolicy
-                                    discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
 
 
 
@@ -38,6 +37,10 @@ public class OrderServiceImpl implements OrderService {
     //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
     // 메서드 오버라이드로 creatOrder 재정의
+    // 이름 - createOrder
+    // 매개변수 - memberId, itemName, itemPrice
+    // 동작 - 멤버 리퍼지토리에서 매개변수로 찾은 멤버아이디로 멤버를 생성하고, 할인정책이 얼마인지 할인정책메서드로 저장한다.
+    // 반환값 - 동작 값으로 주문을 생성한후 반환한다.
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
 
