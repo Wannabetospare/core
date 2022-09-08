@@ -12,7 +12,11 @@ public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10; // 할인할 %를 int 형으로 선언
 
-    // 메서드 오버라이드로 인터페이스에서 만든 추상메서드를 구현체에서 구현, 구매비의 10% 할인 해주는 메서드
+    // 메서드 오버라이드로 인터페이스에서 만든 추상메서드를 구현체에서 구현
+    // 이름 - discount
+    // 매개변수 - member, price
+    // 동작 - 만약 멤버의 등급을 확인하고, VIP 이면 가격에서 10%를 할인한 int값을 반환한다.
+    // 반환값 - 동작값으로 반환한다.
     @Override
     public int discount(Member member, int price) {
         if(member.getGrade() == Grade.VIP){

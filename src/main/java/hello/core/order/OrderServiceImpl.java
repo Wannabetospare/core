@@ -23,6 +23,7 @@ public class OrderServiceImpl implements OrderService {
     // 할인 정책을 선언, new 를 사용한 구현체에 의존하지 않고, 인터페이스에만 의존 (추상화만 사용)
     private final DiscountPolicy discountPolicy;
 
+    // 주문 서비스 구현체 생성자 매개변수로 멤버리퍼지토리와 할인정책을 받는다.
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
@@ -36,6 +37,7 @@ public class OrderServiceImpl implements OrderService {
     // private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
+
     // 메서드 오버라이드로 creatOrder 재정의
     // 이름 - createOrder
     // 매개변수 - memberId, itemName, itemPrice
@@ -48,7 +50,6 @@ public class OrderServiceImpl implements OrderService {
         Member member = memberRepository.findById(memberId);
         // 할인정책에서 위에서 선언된 멤버와 매개변수로 찾은 아이템가격을 받아와서 값을 저장한다.
         int discountPrice = discountPolicy.discount(member, itemPrice);
-
         // 결과값으로 클래스 생성자 타입으로 반환
         return new Order(memberId, itemName, itemPrice, discountPrice);
     }
