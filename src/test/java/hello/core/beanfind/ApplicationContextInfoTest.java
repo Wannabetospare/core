@@ -8,13 +8,17 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
     class ApplicationContextInfoTest {
 
+    // 스프링 컨테이너 생성, AppConfig 클래스를 컨테이너로 설정 정보로 받음
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 
 
     @Test
     @DisplayName("모든 빈 출력") // 모든 빈을 출력해야 하기 때문에 형태는 자바의 모든 상위타입인 Object 로 한다.
     void findAllBean(){
+        // 스프링 컨테이너에 등록된 빈정보들을 이름으로 가져와서 문자 리스트형으로 선언한다.
         String[] beanDefinitionNames = ac.getBeanDefinitionNames();
+
+        // 선언된 문자 리스트형 스프링 빈들을 반복문으로 받아서 하나씩 이름과 참조 값을 출력한다.
         for (String beanDefinitionName : beanDefinitionNames) {
             Object bean = ac.getBean(beanDefinitionName);
             System.out.println("name = " + beanDefinitionName + "object = " + bean);
