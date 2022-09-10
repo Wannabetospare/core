@@ -21,5 +21,7 @@ public class SingletonTest {
         System.out.println("memberService2 = " + memberService2);
         //memberService1 != memberService2
         assertThat(memberService1).isNotSameAs(memberService2);
+
+        // 순수 자바 코드로 만들어진 테스트라서 CGLIB으로 스프링 컨테이너에 스프링 빈으로 등록되지 않아서 호출할 때 마다 다른 객체를 생성한다.
     }
 }
