@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 // 할인 정책 인터페이스를 상속받은 새로운 할인 정책 구현체 ( 구매한 만큼 10% 할인 )
 @Component
-@MainDiscountPolicy
+@MainDiscountPolicy // 직접 만들어서 사용하는 어노테이션, 이 클래스를 메인할인정책으로 지정하겠다는 의미
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10; // 할인할 %를 int 형으로 선언

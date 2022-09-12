@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
+@RequiredArgsConstructor // final 이 붙은 필드를 모아서 생성자를 자동생성해준다. 생성자가 1개라서 @Autowired 생략했음.
 // 오더 서비스를 상속받아 만든 서비스 구현체
 public class OrderServiceImpl implements OrderService {
 
@@ -23,12 +24,6 @@ public class OrderServiceImpl implements OrderService {
     // 할인 정책을 선언, new 를 사용한 구현체에 의존하지 않고, 인터페이스에만 의존 (추상화만 사용)
     private final DiscountPolicy discountPolicy;
 
-    // 주문 서비스 구현체 생성자 매개변수로 멤버리퍼지토리와 할인정책을 받는다.
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
 
 
 
