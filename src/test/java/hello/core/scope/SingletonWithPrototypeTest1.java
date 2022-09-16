@@ -32,6 +32,7 @@ public class SingletonWithPrototypeTest1 {
 
 
         @Autowired
+        // Provider - 지정한 빈을 컨테이너에서 대신 찾아두는 DL 서비스를 제공해준다.
         private Provider<PrototypeBean> prototypeBeanProvider;
         public int logic() {
             PrototypeBean prototypeBean = prototypeBeanProvider.get();

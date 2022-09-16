@@ -10,6 +10,7 @@ import javax.annotation.PreDestroy;
 import java.util.UUID;
 
 @Component
+// 스코프(범위) 설정, 프록시 모드 옵션을 사용해서 프록시 객체를 만들어서 사용한다.(여기선 클래스를 프록시 객체로 사용)
 @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class MyLogger {
 

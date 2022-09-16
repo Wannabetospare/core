@@ -28,6 +28,8 @@ public class PrototypeTest {
 
         ac.close(); //종료
     }
+
+    // 스코프 설정을 프로토타입으로 초기화
     @Scope("prototype")
     static class PrototypeBean {
 
